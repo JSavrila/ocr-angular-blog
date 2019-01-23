@@ -18,9 +18,11 @@ export class SigninComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+    // créer formulaire à l'initialisation.
+    // Formulaire doit être prêt avant que l'utilisateur commmence à taper.
     this.initSignInForm()
   }
-
+  // création formulaire
   initSignInForm() {
     this.signinForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -28,12 +30,14 @@ export class SigninComponent implements OnInit {
     })
   }
 
+  // passer les datas du formulaire au service d'authentification
   onSignIn() {
     const email = this.signinForm.get('email').value;
     const password = this.signinForm.get('password').value;
     this.authService.userSignIn(email, password)
     .then(
       () => {
+        // authentifié ? rediriger vers l'accueil
         this.router.navigate(['/blogs'])
       },
       (error) => { this.errorMessage = error }

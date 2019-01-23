@@ -18,22 +18,26 @@ export class SignupComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+    // créer formulaire à l'initialisation.
+    // Formulaire doit être prêt avant que l'utilisateur commmence à taper.
     this.initSignUpForm()
   }
 
+  // création formulaire
   initSignUpForm() {
     this.signupForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
     })
   }
-
+  // passer les datas du formulaire au service d'authentification
   onSignUp() {
     const email = this.signupForm.get('email').value;
     const password = this.signupForm.get('password').value;
     this.authService.userSignUp(email, password)
     .then(
       () => {
+        // authentifié ? rediriger vers l'accueil
         this.router.navigate(['/blogs'])
       },
       (error) => { this.errorMessage = error }

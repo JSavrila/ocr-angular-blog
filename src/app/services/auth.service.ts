@@ -9,6 +9,7 @@ export class AuthService {
 
   constructor() { }
 
+  // inscription
   userSignUp(email: string, password: string) {
     return new Promise(
       (resolve, reject) => {
@@ -20,6 +21,7 @@ export class AuthService {
     )
   }
 
+  // connexion
   userSignIn(email: string, password: string) {
     return new Promise(
       (resolve, reject) => {
@@ -31,6 +33,7 @@ export class AuthService {
     )
   }
 
+  // déconnexion
   userSignOut() {
     firebase.auth().signOut()
   }

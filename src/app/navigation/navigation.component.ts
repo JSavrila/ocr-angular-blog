@@ -15,9 +15,11 @@ export class NavigationComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    // savoir quoi afficher dès l'initialisation du component
     this.isSignedIn()
   }
 
+  // contenu à afficher selon status de l'utilisateur
   isSignedIn() {
     return new Promise((resolve, reject) => {
       firebase.auth().onAuthStateChanged(
@@ -34,6 +36,7 @@ export class NavigationComponent implements OnInit {
     })
   }
 
+  // déconnexion
   onSignOut() {
     this.authService.userSignOut()
     this.router.navigate(['/signin'])
