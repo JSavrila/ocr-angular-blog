@@ -1,3 +1,11 @@
-<p>
-  single-blog works!
-</p>
+<button
+  class="list-group-item"
+  (click)="onViewPost(i)">
+  <h3 class="list-group-item-heading">
+    {{ postTitle }}
+    <button class="btn btn-default pull-right" (click)="onDeletePost()">
+      <span class="glyphicon glyphicon-minus"></span>
+    </button>
+  </h3>
+  <p class="list-group-item-text">{{ postText }}</p>
+</button>

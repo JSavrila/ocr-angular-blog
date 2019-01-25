@@ -33,6 +33,15 @@ export class AuthService {
     )
   }
 
+  // récupérer id utilisateur
+  getUserID() {
+    let user = firebase.auth().currentUser
+    let uid = ''
+    if(user != null) {
+       return uid = user.uid;
+    }
+  }
+
   // déconnexion
   userSignOut() {
     firebase.auth().signOut()
