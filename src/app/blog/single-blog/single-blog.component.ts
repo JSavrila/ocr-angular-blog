@@ -12,11 +12,33 @@ export class SingleBlogComponent implements OnInit {
   @Input() postId: string
   @Input() postTitle: string
   @Input() postText: string
+  @Input() postApproval: number
   @Input() postCreationDate: number
 
   constructor(private blogsService: BlogsService) { }
 
   ngOnInit() {
+  }
+
+  // couleur des avis en fonction des upvote/downvote
+  getColor() {
+    if(this.postApproval == 0) {
+      return 'black';
+    }
+    else if(this.postApproval > 0) {
+      return 'green'
+    }
+    else { return 'red' }
+  }
+
+  // approuver
+  onUpvote() {
+    this.blogsService.upvote(this.postId)
+  }
+
+  // désapprouver
+  onDownvote() {
+    this.blogsService.downvote(this.postId)
   }
 
   // supprimer le document ayant l'id bindé en postId

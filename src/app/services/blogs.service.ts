@@ -60,6 +60,48 @@ export class BlogsService {
     })
   }
 
+  // incrémenter approval de 1
+  upvote(id: string) {
+    const docRef = firebase.firestore().collection(this.collection).doc(id)
+
+    return firebase.firestore().runTransaction((transaction) => {
+      // idempotence: ce code peut s'exécuter plusieurs fois en cas de conflit
+      return transaction.get(docRef).then((doc) => {
+        if (!doc.exists) {
+            throw "Document does not exist!";
+        }
+
+        var newApproval = doc.data().approval + 1;
+        transaction.update(docRef, { approval: newApproval });
+      });
+    })
+    .then(
+      () => {},
+      (error) => { throw(error) })
+
+  }
+
+  // décrémenter approval de 1
+  downvote(id: string) {
+    const docRef = firebase.firestore().collection(this.collection).doc(id)
+
+    return firebase.firestore().runTransaction((transaction) => {
+      // idempotence: ce code peut s'exécuter plusieurs fois en cas de conflit
+      return transaction.get(docRef).then((doc) => {
+          if (!doc.exists) {
+              throw "Document does not exist!";
+          }
+  
+          var newApproval = doc.data().approval - 1;
+          transaction.update(docRef, { approval: newApproval });
+      });
+    })
+    .then(
+      () => {},
+      (error) => { throw(error) })
+
+  }
+
   // supprimer poste
   deleteSinglePost(id: string) {
     return new Promise((resolve, reject) => {
