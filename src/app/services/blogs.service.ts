@@ -40,11 +40,12 @@ export class BlogsService {
            posts.push({ docId: doc.id, data: doc.data() })
          })
 
-         // trier du plus récent au plus ancien
+         /* trier du plus récent au plus ancien: trier les dates par
+            décroissant */
          posts.sort((a, b) => { return b.data.date - a.data.date });
 
          this.posts = posts;
-         
+
          // émettre posts[]
          this.emitPosts()
       });
