@@ -39,8 +39,12 @@ export class BlogsService {
            // push de l'id et des datas contenu vers un array temporaire
            posts.push({ docId: doc.id, data: doc.data() })
          })
-         // push vers array émit par Subject()
+
+         // trier du plus récent au plus ancien
+         posts.sort((a, b) => { return b.data.date - a.data.date });
+
          this.posts = posts;
+         
          // émettre posts[]
          this.emitPosts()
       });
