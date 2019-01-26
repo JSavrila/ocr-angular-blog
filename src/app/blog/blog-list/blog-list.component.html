@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onNewPost()">Editer un poste</button>
       <h2>Vos postes</h2>
       <div class="list-group">
         <app-single-blog
@@ -12,7 +13,6 @@
           [postCreationDate]="post.data.date"
           [index]="i"></app-single-blog>
       </div>
-      <button class="btn btn-primary" (click)="onNewPost()">Editer un poste</button>
     </div>
   </div>
 </div>
