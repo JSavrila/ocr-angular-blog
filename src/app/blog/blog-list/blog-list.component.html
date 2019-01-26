@@ -1,15 +1,17 @@
-<div class="row">
-  <div class="col-xs-12">
-    <h2>Vos postes</h2>
-    <div class="list-group">
-      <app-single-blog
-        *ngFor="let post of posts; let i = index;"
-        [postId]="post.docId"
-        [postTitle]="post.data.title"
-        [postText]="post.data.text"
-        [postCreationDate]="post.data.date"
-        [index]="i"></app-single-blog>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Vos postes</h2>
+      <div class="list-group">
+        <app-single-blog
+          *ngFor="let post of posts; let i = index;"
+          [postId]="post.docId"
+          [postTitle]="post.data.title"
+          [postText]="post.data.text"
+          [postCreationDate]="post.data.date"
+          [index]="i"></app-single-blog>
+      </div>
+      <button class="btn btn-primary" (click)="onNewPost()">Editer un poste</button>
     </div>
-    <button class="btn btn-primary" (click)="onNewPost()">Editer un poste</button>
   </div>
 </div>
