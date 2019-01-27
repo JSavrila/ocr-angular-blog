@@ -1,0 +1,24 @@
+import { Component } from '@angular/core';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  constructor() {
+  // Initialize Firebase
+  var config = {
+    apiKey: "key",
+    authDomain: "domain",
+    databaseURL: "url",
+    projectId: "id",
+    storageBucket: "domain",
+    messagingSenderId: "id"
+  };
+  firebase.initializeApp(config);
+  }
+}

@@ -1,27 +1,24 @@
-# OpenclassroomsAngularBlogs
+# OpenClassRooms-Angular-Blog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
+Projet final du cours [Angular](https://openclassrooms.com/fr/courses/4668271-developpez-des-applications-web-avec-angular) d'OpenClassRooms.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![page d'accueil](img/openclassrooms-screenshot.png)
 
-## Code scaffolding
+##Services utilisés
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Cloud Firestore](https://cloud.google.com/firestore/)
+- [Firebase Authentication](https://firebase.google.com/products/auth/)
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Installez les packages requis depuis la racine du projet:
 
-## Running unit tests
+```
+npm install --save firebase@5.8.1 boostrap@3.3.7
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Copiez le contenu de [app.component.ts.dist](src/app/app.component.ts.dist) vers [app.component.ts](src/app/app.component.ts) en prenant soin de remplacer les clés d'API par celle de votre projet.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Après avoir lancé le serveur avec `ng serve --open`, ouvrez 2 fenêtres vers [localhost:4200](http://localhost:4200). Vous pouvez maintenant tester l'application en observant les changements s'effectuer sur les 2 pages.
