@@ -16,7 +16,7 @@ Projet final du cours [Angular](https://openclassrooms.com/fr/courses/4668271-de
 Installez les packages requis depuis la racine du projet:
 
 ```
-npm install --save firebase@5.8.1 boostrap@3.3.7
+npm install --save firebase@5.8.1 bootstrap@3.3.7
 ```
 
 Copiez le contenu de [app.component.ts.dist](src/app/app.component.ts.dist) vers [app.component.ts](src/app/app.component.ts) en prenant soin de remplacer les clés d'API par celle de votre projet.
