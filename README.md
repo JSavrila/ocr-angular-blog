@@ -6,7 +6,7 @@ Projet final du cours [Angular](https://openclassrooms.com/fr/courses/4668271-de
 
 ![page d'accueil](img/openclassrooms-screenshot.png)
 
-##Services utilisés
+## Services utilisés
 
 - [Cloud Firestore](https://cloud.google.com/firestore/)
 - [Firebase Authentication](https://firebase.google.com/products/auth/)
